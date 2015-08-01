@@ -63,7 +63,12 @@ class Command(runserver.Command):
                     help="Don't use StaticFilesHandler. Use this if using a "
                          "third-party handler (e.g., WhiteNoise)."),
         make_option("--static", dest='use_static_handler',
-                    action='store_true')
+                    action='store_true'),
+        make_option('--noreload',
+                     action='store_false',
+                     dest='use_reloader',
+                     default=True,
+                     help='Tells Django to NOT use the auto-reloader.')
     )
 
     help = "Run a Django development server over HTTPS"
